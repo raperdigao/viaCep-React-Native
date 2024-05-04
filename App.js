@@ -1,9 +1,24 @@
 import { StatusBar } from 'expo-status-bar';
 import { Image, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
 import Viaceplogo from './assets/viaCepLogo.jpg'
+import { useState } from 'react';
 
 export default function App() {
+// Aqui pode criar scripts
+
+const [cepInformado, setCepInformado] = useState("");
+const [logradouro, setLogradouro] = useState("");
+const [bairro, setBairro] = useState("");
+const [cidade, setCidade] = useState("");
+const [uf, setUf] = useState("");
+
+
+  //variável recebendo a url da API
+  
+
+
   return (
+    // Aqui somente HTMl e CSS
     <View style={styles.container}>
 
 
@@ -26,6 +41,7 @@ export default function App() {
           <TextInput
             placeholder='Informe o seu nome'
             style={styles.inputStyle}
+           
           />
           <Text style={styles.textStyles}>
             Cep:
@@ -126,7 +142,6 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: 'white',
     fontWeight: 'bold',
-
-
   }
 });
+

@@ -5,3 +5,4 @@ app.js - onde desenvolve
 code . - abre o vscode
 npx expo start  - criar o qrcode
 r - comando para dar reloading no expo
+npm i axios
