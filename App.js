@@ -1,11 +1,26 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { Image, StyleSheet, Text, View } from 'react-native';
+import Viaceplogo from './assets/viaCepLogo.jpg'
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Projeto viaCep React Native</Text>
+      
+
       <StatusBar style="auto" />
+      <Image
+      // Estilizar a imagem inline
+      style={{position: 'absolute', top: 40, borderRadius: 10}}
+      source={Viaceplogo}
+      />
+
+      <View
+      // criar a classe containerInfos
+      style={styles.containerInfos}
+      >
+
+      </View>
+
     </View>
   );
 }
@@ -17,4 +32,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+
+  containerInfos: {
+
+  }
 });
