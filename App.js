@@ -1,16 +1,39 @@
 import { StatusBar } from 'expo-status-bar';
 import { Image, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
 import Viaceplogo from './assets/viaCepLogo.jpg'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { api } from './axios';
 
 export default function App() {
 // Aqui pode criar scripts
+
+
 
 const [cepInformado, setCepInformado] = useState("");
 const [logradouro, setLogradouro] = useState("");
 const [bairro, setBairro] = useState("");
 const [cidade, setCidade] = useState("");
 const [uf, setUf] = useState("");
+
+async function cepDigitado() {
+  try {
+    const response = await api.get(`${cepInformado}/json`);
+
+    setLogradouro(response.data.logradouro)
+    setBairro(response.data.bairro)
+    setCidade(response.data.localidade)
+    setUf(response.data.uf)
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+
+useEffect(() => {
+  cepDigitado();
+
+}, [cepInformado])
+
 
 
   //variável recebendo a url da API
@@ -51,6 +74,7 @@ const [uf, setUf] = useState("");
             placeholder='Informe o seu cep'
             style={styles.inputStyle}
             keyboardType='numeric'
+            onChangeText={(txt) => setCepInformado(txt)}
           />
           <Text style={styles.textStyles}>
             Endereço:
@@ -59,6 +83,7 @@ const [uf, setUf] = useState("");
           <TextInput
             placeholder='Informe o seu endereço'
             style={styles.inputStyle}
+            value={logradouro}
           />
           <Text style={styles.textStyles}>
             Número:
@@ -78,6 +103,7 @@ const [uf, setUf] = useState("");
           <TextInput
             placeholder='Informe o seu bairro'
             style={styles.inputStyle}
+            value={bairro}
 
           />
 
@@ -89,6 +115,7 @@ const [uf, setUf] = useState("");
           <TextInput
             placeholder='Informe a sua cidade'
             style={styles.inputStyle}
+            value={cidade}
           />
 
           <Text style={styles.textStyles} t>
@@ -98,6 +125,7 @@ const [uf, setUf] = useState("");
           <TextInput
             placeholder='Informe a sua UF'
             style={styles.inputStyle}
+            value={uf}
 
           />
 

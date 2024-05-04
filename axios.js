@@ -4,6 +4,6 @@ export const api = axios.create ({
     baseURL: 'https://viacep.com.br/ws/',
     timeout: 1000,
     headers: {
-        'Content-Type': 'application/JSON'
+        'Content-Type': 'application/json'
     }
 });
