@@ -1,0 +1,11 @@
+Optimize-Volume -DriveLetter C -ReTrim -Verbose
+
+
+$action = New-ScheduledTaskAction -Execute 'Optimize-Volume -DriveLetter C -ReTrim -Verbose' 
+
+$trigger = New-ScheduledTaskTrigger -Daily -At 09am
+
+Register-ScheduledTask -Action $action -Trigger $trigger -TaskName "TEST" -Description "MY SCHEDULED TASK"
+
+
+https://soundartifacts.com/pt/how-to/86-how-to-run-a-powershell-script-on-schedule-using-task-scheduler.html

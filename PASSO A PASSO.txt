@@ -1,0 +1,7 @@
+no git bash 
+npx create-expo-app viaCep
+cd viaCep
+app.js - onde desenvolve
+code . - abre o vscode
+npx expo start  - criar o qrcode
+r - comando para dar reloading no expo
