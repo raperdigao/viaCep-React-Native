@@ -1,93 +1,93 @@
 import { StatusBar } from 'expo-status-bar';
-import { Image, StyleSheet, Text, TextInput, View } from 'react-native';
+import { Image, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
 import Viaceplogo from './assets/viaCepLogo.jpg'
 
 export default function App() {
   return (
     <View style={styles.container}>
-      
+
 
       <StatusBar style="auto" />
       <Image
-      // Estilizar a imagem inline
-      style={{position: 'absolute', top: 40, borderRadius: 10, flex: 1}}
-      source={Viaceplogo}
+        // Estilizar a imagem inline
+        style={{ position: 'absolute', top: 40, borderRadius: 10, flex: 1 }}
+        source={Viaceplogo}
       />
 
       <View
-      // criar a classe containerInfos
-      style={styles.containerInfos}
+        // criar a classe containerInfos
+        style={styles.containerInfos}
       >
+        <ScrollView showsVerticalScrollIndicator={false}>
+          <Text style={styles.textStyles}>
+            Nome:
+          </Text>
 
-    <Text>
-      Nome:
-    </Text>
+          <TextInput
+            placeholder='Informe o seu nome'
+            style={styles.inputStyle}
+          />
+          <Text style={styles.textStyles}>
+            Cep:
+          </Text>
 
-    <TextInput
-    placeholder='Informe o seu nome'
-    style={styles.inputStyle}
-    />
-    <Text>
-      Cep:
-    </Text>
+          <TextInput
+            placeholder='Informe o seu cep'
+            style={styles.inputStyle}
+            keyboardType='numeric'
+          />
+          <Text style={styles.textStyles}>
+            Endereço:
+          </Text>
 
-    <TextInput
-    placeholder='Informe o seu cep'
-    style={styles.inputStyle}
-    keyboardType='numeric'
-    />
-    <Text>
-      Endereço:
-    </Text>
+          <TextInput
+            placeholder='Informe o seu endereço'
+            style={styles.inputStyle}
+          />
+          <Text style={styles.textStyles}>
+            Número:
+          </Text>
 
-    <TextInput
-    placeholder='Informe o seu endereço'
-    style={styles.inputStyle}
-    />
-    <Text>
-      Número:
-    </Text>
-
-    <TextInput
-    placeholder='Informe o seu número'
-    style={styles.inputStyle}
-    keyboardType='numeric'
-    />
-
-
-<Text>
-      Bairro:
-    </Text>
-
-    <TextInput
-    placeholder='Informe o seu bairro'
-    style={styles.inputStyle}
-   
-    />
+          <TextInput
+            placeholder='Informe o seu número'
+            style={styles.inputStyle}
+            keyboardType='numeric'
+          />
 
 
-    <Text>
-      Cidade:
-    </Text>
+          <Text style={styles.textStyles}>
+            Bairro:
+          </Text>
 
-    <TextInput
-    placeholder='Informe a sua cidade'
-    style={styles.inputStyle}
-    />
+          <TextInput
+            placeholder='Informe o seu bairro'
+            style={styles.inputStyle}
 
-<Text>
-      UF:
-    </Text>
-
-    <TextInput
-    placeholder='Informe a sua UF'
-    style={styles.inputStyle}
-   
-    />
+          />
 
 
+          <Text style={styles.textStyles}>
+            Cidade:
+          </Text>
 
-   
+          <TextInput
+            placeholder='Informe a sua cidade'
+            style={styles.inputStyle}
+          />
+
+          <Text style={styles.textStyles} t>
+            UF:
+          </Text>
+
+          <TextInput
+            placeholder='Informe a sua UF'
+            style={styles.inputStyle}
+
+          />
+
+
+        </ScrollView>
+
       </View>
 
     </View>
@@ -97,20 +97,36 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: 'black',
     alignItems: 'center',
     justifyContent: 'center',
   },
 
   containerInfos: {
     flex: 1,
-    borderWidth: 8, 
-    width: '80%',
+    
+    borderRadius: 10,
+    borderColor: 'yellow',
+    width: '90%',
     height: "60%",
     marginTop: 250,
   },
-  
+
   inputStyle: {
+    borderWidth: 2,
+    padding: 10,
+    borderRadius: 8,
+    borderColor: '#6c9c5e',
+    marginTop: 10,
+    marginBottom: 10,
+    color: 'white',
+    fontWeight: '800',
+  },
+  textStyles: {
+    fontSize: 16,
+    color: 'white',
+    fontWeight: 'bold',
+
 
   }
 });
